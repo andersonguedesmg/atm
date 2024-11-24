@@ -1,4 +1,5 @@
 // #region 1. DEFINIÇÃO DA INTERFACE ESTADO
+// Define os métodos que cada estado do ATM deve implementar.
 interface Estado {
   inserirCartao(): void;
   removerCartao(): void;
@@ -10,6 +11,7 @@ interface Estado {
 
 
 // #region 2. ESTADOS CONCRETOS
+// Implementações específicas para os estados Sem Cartão, Com Cartão e Pronto para Sacar.
 // Estado: SemCartao
 class SemCartao implements Estado {
   private atm: ATM;
@@ -101,6 +103,7 @@ class ProntoParaSacar implements Estado {
 
 
 // #region 3. CLASSE CONTEXTO
+// Contexto principal que gerencia a transição entre os estados.
 class ATM {
   private estadoSemCartao: Estado;
   private estadoComCartao: Estado;
@@ -154,6 +157,7 @@ class ATM {
 
 
 // #region 4. EXEMPLO DE USO
+// Simula a interação com o ATM, mostrando como ele reage às ações do usuário dependendo do estado atual.
 const atm = new ATM();
 
 console.log("=== CENÁRIO: SEM CARTÃO ===");
